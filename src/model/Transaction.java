@@ -1,3 +1,8 @@
+/*
+ * @Author : Déwi Girot
+ * 
+ * */
+
 package model;
 
 import java.io.Serializable;
@@ -8,6 +13,12 @@ public class Transaction implements Serializable {
 	private String type;
 	private double montant;
 	
+	
+	/*
+	 * Constructor
+	 * 
+	 * @throws : throws exception if name is null, type is not 'c' or 'd' and if montant <= 0
+	 * */
 	public Transaction(String nom, String type, double montant) throws IllegalArgumentException{
 		if(montant <= 0 ) {
 			throw new IllegalArgumentException("Le montant doit être supérieur à 0");
@@ -22,6 +33,11 @@ public class Transaction implements Serializable {
 		this.type = type;
 		this.montant = montant;
 	}
+	
+	
+	/*
+	 * Getters and Setters
+	 * */
 
 	public String getNom() {
 		return this.nom;
