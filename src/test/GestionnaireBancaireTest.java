@@ -16,14 +16,14 @@ class GestionnaireBancaireTest {
 	 * Tests constructor
 	 * */
 	@Test
-	void testConstructor() {
-		GestionnaireBancaire gestionnaire = new GestionnaireBancaire(10.0);
-	}
-	
-	@Test
     public void testInvalidSeuilInf() {
 		Assertions.assertThrows(IllegalArgumentException.class,
 	            () -> new GestionnaireBancaire(-1.0));
     }
+	
+	@Test
+	void testConstructorLoadFileOk() {
+		GestionnaireBancaire gestionnaire = new GestionnaireBancaire(10.0);
+	}
 
 }

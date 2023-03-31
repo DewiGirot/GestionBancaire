@@ -24,11 +24,13 @@ public class GestionnaireBancaire {
 		this.listTransaction = new LinkedList<>();
 		this.listTaux = new LinkedList<>();
 		this.solde = solde;
+		
+		this.chargerTaux();
 	}
 
 
 	public void chargerTaux() {
-	    try (BufferedReader br = new BufferedReader(new FileReader("data/taux.txt"))) {
+	    try (BufferedReader br = new BufferedReader(new FileReader("../GestionBancaire/src/data/taux.txt"))) {
 	        String line;
 	        while ((line = br.readLine()) != null) {
 	            String[] values = line.split(" ");
