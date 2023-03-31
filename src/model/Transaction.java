@@ -9,6 +9,9 @@ public class Transaction implements Serializable {
 	private double montant;
 	
 	public Transaction(String nom, String type, double montant) throws IllegalArgumentException{
+		if(montant <= 0 ) {
+			throw new IllegalArgumentException("Le montant doit être supérieur à 0");
+		}
 		this.nom = nom;
 		this.type = type;
 		this.montant = montant;
