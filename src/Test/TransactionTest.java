@@ -13,9 +13,15 @@ class TransactionTest {
 	}
 	
 	@Test
+    public void testInvalidNom() {
+		Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new Transaction("", "d", 100.0));
+    }
+	
+	@Test
     public void testInvalidMontant() {
 		Assertions.assertThrows(IllegalArgumentException.class,
-            () -> new Transaction("frais", "débit", 0.0));
+            () -> new Transaction("Transaction 1", "d", 0.0));
     }
 
 }
