@@ -2,7 +2,7 @@
  * @Author : Déwi Girot
  * */
 
-package controller;
+package application;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
