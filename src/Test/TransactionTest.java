@@ -19,6 +19,12 @@ class TransactionTest {
     }
 	
 	@Test
+    public void testInvalidType() {
+		Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new Transaction("Transaction 1", "debit", 100.0));
+    }
+	
+	@Test
     public void testInvalidMontant() {
 		Assertions.assertThrows(IllegalArgumentException.class,
             () -> new Transaction("Transaction 1", "d", 0.0));

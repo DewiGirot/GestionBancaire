@@ -15,6 +15,9 @@ public class Transaction implements Serializable {
 		if(nom.equals("")) {
 			throw new IllegalArgumentException("Le nom de la transaction est vide");
 		}
+		if(!type.equals("c") || type.equals("d")) {
+			throw new IllegalArgumentException("Le type doit être 'c' pour crédit ou 'd' pour débit");
+		}
 		this.nom = nom;
 		this.type = type;
 		this.montant = montant;
