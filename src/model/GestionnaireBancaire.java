@@ -33,7 +33,7 @@ public class GestionnaireBancaire {
 		this.solde = solde;
 		
 		this.chargerTaux();
-		this.chargerTransactions();
+		//this.chargerTransactions();
 	}
 
 
@@ -52,19 +52,19 @@ public class GestionnaireBancaire {
 	    }
 	}
 	
-	public void chargerTransactions() {
-	    Path filePath = Paths.get("../GestionBancaire/src/data", "SaveList.bin");
-	    try (FileInputStream fis = new FileInputStream(filePath.toFile());
-	        ObjectInputStream ois = new ObjectInputStream(fis)) {
-	    	List<Transaction> loadedList = (LinkedList<Transaction>) ois.readObject();
-	    	listTransaction.clear();
-	        if(loadedList != null && !loadedList.isEmpty()) {
-	            listTransaction.addAll(loadedList);
-	        }
-	    } catch (IOException | ClassNotFoundException e) {
-	        System.err.println("Erreur lors du chargement des transactions : " + e.getMessage());
-	    }
-	}
+//	public void chargerTransactions() {
+//	    Path filePath = Paths.get("../GestionBancaire/src/data", "SaveList.bin");
+//	    try (FileInputStream fis = new FileInputStream(filePath.toFile());
+//	        ObjectInputStream ois = new ObjectInputStream(fis)) {
+//	    	List<Transaction> loadedList = (LinkedList<Transaction>) ois.readObject();
+//	    	listTransaction.clear();
+//	        if(loadedList != null && !loadedList.isEmpty()) {
+//	            listTransaction.addAll(loadedList);
+//	        }
+//	    } catch (IOException | ClassNotFoundException e) {
+//	        System.err.println("Erreur lors du chargement des transactions : " + e.getMessage());
+//	    }
+//	}
 	
 //	public void sauvegarderTransactions() {
 //		try {
