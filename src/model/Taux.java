@@ -16,6 +16,9 @@ public class Taux {
 		if(seuilInf < 0 || seuilSup <0) {
 			throw new IllegalArgumentException("Les taux ne peuvent être inférieurs à 0");
 		}
+		if(seuilInf > seuilSup) {
+			throw new IllegalArgumentException("Le seuilInf ne peut pas être supérieur au seuilSup");
+		}
 		this.seuilInf = seuilInf;
 		this.seuilSup = seuilSup;
 		this.tauxApplique = taux;
