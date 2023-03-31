@@ -19,6 +19,10 @@ public class Main extends Application {
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("../vue/application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Gestion bancaire");
+			primaryStage.setWidth(600);
+			primaryStage.setHeight(200);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
