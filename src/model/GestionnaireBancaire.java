@@ -17,7 +17,10 @@ public class GestionnaireBancaire {
 	private double solde;
 	
 	
-	public GestionnaireBancaire(double solde) {
+	public GestionnaireBancaire(double solde) throws IllegalArgumentException {
+		if(solde <= 0) {
+			throw new IllegalArgumentException("Le solde ne peut pas être inférieur ou égal à 0");
+		}
 		this.listTransaction = new LinkedList<>();
 		this.listTaux = new LinkedList<>();
 		this.solde = solde;
