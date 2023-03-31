@@ -48,6 +48,12 @@ class TauxTest {
 	            () -> new Taux(1.0, 100.0, -3.0, "Taux 1"));
     }
 	
+	@Test
+    public void testInvalidNom() {
+		Assertions.assertThrows(IllegalArgumentException.class,
+	            () -> new Taux(1.0, 100.0, 3.0, ""));
+    }
+	
 	/*
 	 * Test to all setters
 	 * */
