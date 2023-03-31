@@ -33,7 +33,7 @@ public class GestionnaireBancaire {
 		this.solde = solde;
 		
 		this.chargerTaux();
-		//this.chargerTransactions();
+		this.chargerTransactions();
 	}
 
 
@@ -52,6 +52,7 @@ public class GestionnaireBancaire {
 	    }
 	}
 	
+// Code plus propre mais non testé
 //	public void chargerTransactions() {
 //	    Path filePath = Paths.get("../GestionBancaire/src/data", "SaveList.bin");
 //	    try (FileInputStream fis = new FileInputStream(filePath.toFile());
@@ -78,6 +79,23 @@ public class GestionnaireBancaire {
 //	        System.err.println("Erreur lors de la sauvegarde des transactions : " + e.getMessage());
 //	    }
 //	}
+	
+	public void chargerTransactions() {
+	    Path filePath = Paths.get("../GestionBancaire/src/data", "SaveList.bin");
+	    List<Transaction> saveList = new LinkedList<>(listTransaction);
+	    try (FileInputStream fis = new FileInputStream(filePath.toFile());
+	        ObjectInputStream ois = new ObjectInputStream(fis)) {
+	    	List<Transaction> loadedList = (LinkedList<Transaction>) ois.readObject();
+	    	listTransaction.clear();
+	        if(loadedList != null && !loadedList.isEmpty()) {
+	            listTransaction.addAll(loadedList);
+	        }
+	    } catch (IOException e) {
+	        System.err.println("Erreur lors de la sauvegarde des transactions : " + e.getMessage());
+	    } catch (ClassNotFoundException e) {
+	    	System.err.println("Erreur lors de la sauvegarde des transactions : " + e.getMessage());
+		}
+	}
 	
 	public void sauvegarderTransactions() {
 	    Path filePath = Paths.get("../GestionBancaire/src/data", "SaveList.bin");

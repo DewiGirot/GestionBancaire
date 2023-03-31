@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="root" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="/controller/GestionController">
+<GridPane fx:id="root" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller/GestionController">
    <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -44,7 +44,7 @@
       </Label>
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="Enregistrer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+      <Button mnemonicParsing="false" onAction="#actionEnregistrer" text="Enregistrer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
       <Label text="Compte" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
       <Label text="Solde" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
          <GridPane.margin>
