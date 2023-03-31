@@ -1,3 +1,7 @@
+/*
+ * @Author : Déwi Girot
+ * */
+
 package application;
 	
 import javafx.application.Application;

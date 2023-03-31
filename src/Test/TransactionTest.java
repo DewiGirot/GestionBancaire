@@ -1,4 +1,8 @@
-package Test;
+/*
+ * @Author : Déwi Girot
+ * */
+
+package test;
 
 import org.junit.jupiter.api.Assertions;
 
