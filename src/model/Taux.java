@@ -12,7 +12,10 @@ public class Taux {
     private double tauxApplique;
     private String tauxNom;
     
-	public Taux(double seuilInf, double seuilSup, double taux, String tauxNom) {
+	public Taux(double seuilInf, double seuilSup, double taux, String tauxNom) throws IllegalArgumentException {
+		if(seuilInf < 0 || seuilSup <0) {
+			throw new IllegalArgumentException("Les taux ne peuvent être inférieurs à 0");
+		}
 		this.seuilInf = seuilInf;
 		this.seuilSup = seuilSup;
 		this.tauxApplique = taux;
