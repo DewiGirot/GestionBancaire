@@ -12,6 +12,10 @@ public class Taux {
     private double tauxApplique;
     private String tauxNom;
     
+    
+    /*
+     * Constructor
+     * */
 	public Taux(double seuilInf, double seuilSup, double taux, String tauxNom) throws IllegalArgumentException {
 		if(seuilInf < 0 || seuilSup <0) {
 			throw new IllegalArgumentException("Les taux ne peuvent être inférieurs à 0");
@@ -40,6 +44,12 @@ public class Taux {
 	}
 
 	public void setSeuilInf(double seuilInf) {
+		if(seuilInf < 0) {
+			throw new IllegalArgumentException("Les taux ne peuvent être inférieurs à 0");
+		}
+		if(seuilInf > this.seuilSup) {
+			throw new IllegalArgumentException("Le seuilInf ne peut pas être supérieur au seuilSup");
+		}
 		this.seuilInf = seuilInf;
 	}
 
@@ -48,6 +58,12 @@ public class Taux {
 	}
 
 	public void setSeuilSup(double seuilSup) {
+		if(seuilSup <0) {
+			throw new IllegalArgumentException("Les taux ne peuvent être inférieurs à 0");
+		}
+		if(this.seuilInf > seuilSup) {
+			throw new IllegalArgumentException("Le seuilInf ne peut pas être supérieur au seuilSup");
+		}
 		this.seuilSup = seuilSup;
 	}
 
@@ -56,6 +72,9 @@ public class Taux {
 	}
 
 	public void setTauxApplique(double taux) {
+		if(taux < 0) {
+			throw new IllegalArgumentException("Le taux est négatif");
+		}
 		this.tauxApplique = taux;
 	}
 
@@ -64,6 +83,9 @@ public class Taux {
 	}
 
 	public void setTauxNom(String tauxNom) {
+		if(tauxNom.equals("")) {
+			throw new IllegalArgumentException("Le nom du taux est invalide, il st obligatoire de le renseigner");
+		}
 		this.tauxNom = tauxNom;
 	}
     

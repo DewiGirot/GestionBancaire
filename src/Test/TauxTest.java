@@ -59,8 +59,32 @@ class TauxTest {
 	 * */
 	
 	@Test
-    public void testSetNom() {
-		//TODO
+    public void testSetSeuilInf() {
+		Taux t = new Taux(1.0, 100.0, 3.0, "Taux 1");
+		Assertions.assertThrows(IllegalArgumentException.class,
+	            () -> t.setSeuilInf(-1.0));
+    }
+	
+	@Test
+    public void testSetSeuilSup() {
+		Taux t = new Taux(1.0, 100.0, 3.0, "Taux 1");
+		Assertions.assertThrows(IllegalArgumentException.class,
+	            () -> t.setSeuilSup(-100.0));
+		
+    }
+	
+	@Test
+    public void testSetTaux() {
+		Taux t = new Taux(1.0, 100.0, 3.0, "Taux 1");
+		Assertions.assertThrows(IllegalArgumentException.class,
+	            () -> t.setTauxApplique(-3.0));
+    }
+	
+	@Test
+    public void testSetSeuilNom() {
+		Taux t = new Taux(1.0, 100.0, 3.0, "Taux 1");
+		Assertions.assertThrows(IllegalArgumentException.class,
+	            () -> t.setTauxNom(""));
     }	
 	
 
