@@ -33,10 +33,19 @@ class TauxTest {
 	            () -> new Taux(1.0, -100.0, 3.0, "Taux 1"));
     }
 	
+	/*
+	 * Test when seuilInf is greater than seuilSup
+	 * */
 	@Test
     public void testInvalidSeuilInfSupThanSeuilSup() {
 		Assertions.assertThrows(IllegalArgumentException.class,
 	            () -> new Taux(100.0, 1.0, 3.0, "Taux 1"));
+    }
+	
+	@Test
+    public void testInvalidTauxApplique() {
+		Assertions.assertThrows(IllegalArgumentException.class,
+	            () -> new Taux(1.0, 100.0, -3.0, "Taux 1"));
     }
 	
 	/*
