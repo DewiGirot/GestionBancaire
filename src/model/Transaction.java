@@ -12,6 +12,9 @@ public class Transaction implements Serializable {
 		if(montant <= 0 ) {
 			throw new IllegalArgumentException("Le montant doit être supérieur à 0");
 		}
+		if(nom.equals("")) {
+			throw new IllegalArgumentException("Le nom de la transaction est vide");
+		}
 		this.nom = nom;
 		this.type = type;
 		this.montant = montant;
