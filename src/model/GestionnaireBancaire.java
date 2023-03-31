@@ -12,11 +12,20 @@ import java.util.List;
 
 public class GestionnaireBancaire {
 
-	private List<Transaction> listTransaction = new LinkedList<>();
-	private List<Taux> listTaux = new LinkedList<>();
+	private List<Transaction> listTransaction;
+	private List<Taux> listTaux;
+	private double solde;
 	
+	
+	public GestionnaireBancaire(double solde) {
+		this.listTransaction = new LinkedList<>();
+		this.listTaux = new LinkedList<>();
+		this.solde = solde;
+	}
+
+
 	public void chargerTaux() {
-	    try (BufferedReader br = new BufferedReader(new FileReader("Data/taux.txt"))) {
+	    try (BufferedReader br = new BufferedReader(new FileReader("data/taux.txt"))) {
 	        String line;
 	        while ((line = br.readLine()) != null) {
 	            String[] values = line.split(" ");
@@ -28,6 +37,40 @@ public class GestionnaireBancaire {
 	    } catch (IllegalArgumentException e) {
 	        System.err.format("Erreur dans le fichier taux.txt: %s%n", e);
 	    }
+	}
+
+
+	/*
+	 * Getters and Setters
+	 * */
+	
+	public List<Transaction> getListTransaction() {
+		return this.listTransaction;
+	}
+
+
+	public void setListTransaction(List<Transaction> listTransaction) {
+		this.listTransaction = listTransaction;
+	}
+
+
+	public List<Taux> getListTaux() {
+		return this.listTaux;
+	}
+
+
+	public void setListTaux(List<Taux> listTaux) {
+		this.listTaux = listTaux;
+	}
+
+
+	public double getSolde() {
+		return this.solde;
+	}
+
+
+	public void setSolde(double solde) {
+		this.solde = solde;
 	}
 	
 }
