@@ -22,6 +22,9 @@ public class Taux {
 		if(taux < 0) {
 			throw new IllegalArgumentException("Le taux est négatif");
 		}
+		if(tauxNom.equals("")) {
+			throw new IllegalArgumentException("Le nom du taux est invalide, il st obligatoire de le renseigner");
+		}
 		this.seuilInf = seuilInf;
 		this.seuilSup = seuilSup;
 		this.tauxApplique = taux;
